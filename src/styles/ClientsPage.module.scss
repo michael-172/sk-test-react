@@ -1,0 +1,75 @@
+.Clients {
+  min-height: calc(100vh - 500px);
+  margin-top: 150px;
+}
+
+.Header {
+  color: #666666;
+  font-weight: 700;
+  text-align: center;
+  margin: 40px 0px 60px 0px;
+}
+.Breadcrumb {
+  color: #adabab;
+}
+
+.client_Text {
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.clientName {
+  color: #666666;
+  font-weight: 500;
+}
+
+.description {
+  color: #666666;
+  text-align: center;
+  margin: 20px 0px;
+  font-size: 18px;
+  letter-spacing: 1px;
+  font-weight: 300;
+  line-height: 35px;
+  width: 40%;
+}
+
+.Text_Button {
+  width: fit-content;
+  border: 2px solid #15addd;
+  color: #666666;
+  padding: 6px 55px;
+  border-radius: 26px;
+  background: transparent;
+  font-weight: 600;
+  position: relative;
+  transition: 0.3s;
+  background-img: none;
+  width: fit-content !important;
+  padding: 5px 38px;
+  margin-bottom: 25px;
+}
+
+.Text_Button:hover {
+  background-color: #15addd;
+  color: #fff;
+  border-color: transparent;
+}
+
+.Clients_Slider_Header {
+  color: #666666;
+  color: #666666;
+  text-align: center;
+  font-weight: 300;
+}
+
+.Clients__Bottom {
+  margin-top: 60px;
+}
