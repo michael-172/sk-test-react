@@ -22,12 +22,10 @@ const Pagination = ({ items, itemsPerPage }) => {
       <div className={styles.BlogsWrapper}>
         {currentItems &&
           currentItems.map((item, idx) => (
-            <Link to="/Blogs/1">
-              <BlogCard id={`item-${idx}`} key={idx}>
-                {" "}
-                Test
-              </BlogCard>
-            </Link>
+            <BlogCard id={`item-${idx}`} key={idx}>
+              {" "}
+              Test
+            </BlogCard>
           ))}
         {console.log(currentItems)}
       </div>

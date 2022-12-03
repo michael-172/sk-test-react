@@ -7,7 +7,7 @@ const Clients = () => {
   const [largeScreen, setLargeScreen] = useState(true);
 
   const handleResize = () => {
-    if (window.innerWidth > 1400) {
+    if (window.innerWidth > 1200) {
       setLargeScreen(true);
     } else {
       setLargeScreen(false);
@@ -16,7 +16,7 @@ const Clients = () => {
   useEffect(() => {
     window.addEventListener("resize", handleResize);
 
-    window.innerWidth > 1400 ? setLargeScreen(true) : setLargeScreen(false);
+    window.innerWidth > 1200 ? setLargeScreen(true) : setLargeScreen(false);
   }, [handleResize]);
   return (
     <div className={styles.Clients} id="Clients">

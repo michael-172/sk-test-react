@@ -1,5 +1,6 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import styles from "../styles/Footer.module.scss";
 
 const Footer = () => {
@@ -32,11 +33,21 @@ const Footer = () => {
           <Col className={`second ${styles.column}`} md={4}>
             <h3 className={`${styles.QuickLinks}`}>Quick Links</h3>
             <ul className={styles.footerUl}>
-              <li>About Company</li>
-              <li>Our Services</li>
-              <li>Our Clients</li>
-              <li>Our works</li>
-              <li>Contact Us</li>
+              <Link to="/About" className="footer-link">
+                <li>About Company</li>
+              </Link>
+              <Link to="/#Services" className="footer-link">
+                <li>Our Services</li>
+              </Link>
+              <Link to="/Work" className="footer-link">
+                <li>Our Clients</li>
+              </Link>
+              <Link to="/Work" className="footer-link">
+                <li>Our works</li>
+              </Link>
+              <Link to="/Contact" className="footer-link">
+                <li>Contact Us</li>
+              </Link>
             </ul>
           </Col>
           <Col className={`${styles.column} ${styles.thirdColumn}`} md={4}>

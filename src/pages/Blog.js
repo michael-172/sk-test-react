@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, Image } from "react-bootstrap";
 import App_Navbar from "../Components/App_Navbar";
 import Footer from "../Components/Footer";
 import styles from "../styles/BlogPage.module.scss";
 
 const Blog = () => {
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  });
+
   return (
     <>
       <App_Navbar />

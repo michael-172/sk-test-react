@@ -36,6 +36,12 @@
   @media (max-width: 992px) {
     font-size: 60px;
   }
+  @media (max-width: 992px) {
+    font-size: 60px;
+  }
+  @media (max-width: 390px) {
+    font-size: 56px;
+  }
 
   position: relative;
 }
@@ -83,11 +89,24 @@
   width: calc(100% - 100px);
   height: auto;
   max-width: 100%;
-  @media (max-width: 1400px) {
+  animation: topdown 2s ease-in-out infinite;
+  @media (max-width: 992px) {
     width: 100%;
   }
 
   @media (max-width: 768px) {
     display: none;
+  }
+}
+
+@keyframes topdown {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0px);
   }
 }

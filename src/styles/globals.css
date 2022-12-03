@@ -111,6 +111,7 @@ a {
   height: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .container-with-dots ul li img {
@@ -263,4 +264,26 @@ a {
 .scrolled {
   background-color: #fff;
   box-shadow: 0 0 10px 1px #80808040;
+}
+
+.react-multi-carousel-dot-list {
+  bottom: -6px;
+}
+
+.react-multi-carousel-list {
+  height: fit-content;
+  max-height: 650px;
+}
+
+.navbar-nav .nav-link {
+  padding-right: 0;
+  padding-left: 0;
+  color: rgba(0, 0, 0, 0.55);
+}
+
+.footer-link {
+  transition: 0.2s ease;
+}
+.footer-link:hover {
+  color: #666666;
 }

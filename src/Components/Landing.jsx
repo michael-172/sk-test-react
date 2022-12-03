@@ -51,6 +51,7 @@ const Landing = () => {
             sm={12}
             xs={12}
             className="d-flex align-items-center justify-content-center"
+            style={{ paddingTop: "60px" }}
           >
             <img
               src={"./landing.png"}

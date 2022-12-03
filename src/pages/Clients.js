@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, Row } from "react-bootstrap";
 import styles from "../styles/ClientsPage.module.scss";
 import Carousel from "react-multi-carousel";
@@ -7,6 +7,14 @@ import App_Navbar from "../Components/App_Navbar";
 import Footer from "../Components/Footer";
 
 const Clients = () => {
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  });
+
   return (
     <>
       <App_Navbar />

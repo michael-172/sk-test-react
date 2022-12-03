@@ -7,7 +7,7 @@ import Navbar from "react-bootstrap/Navbar";
 import styles from "../styles/Navbar.module.scss";
 
 const App_Navbar = () => {
-  const [scrolled, setScrolled] = useState(true);
+  const [scrolled, setScrolled] = useState(false);
   const [activeLink, setActiveLink] = useState("");
 
   const handleScroll = () => {
@@ -81,7 +81,13 @@ const App_Navbar = () => {
             >
               <Offcanvas.Header closeButton>
                 <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
-                  Offcanvas
+                  <img
+                    src={"../Asset 9.svg"}
+                    width={201}
+                    height={90}
+                    alt="logo"
+                    className={styles.NavbarBrand}
+                  />{" "}
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>

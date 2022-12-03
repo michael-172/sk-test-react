@@ -9,6 +9,8 @@ import { useDispatch } from "react-redux";
 import { scrolled, notScrolled } from "../ReduxToolkit/ServicesSlice";
 import App_Navbar from "../Components/App_Navbar";
 import Footer from "../Components/Footer";
+import { pageMotion } from "../AnimatedRoutes";
+import { motion } from "framer-motion";
 
 const Work = () => {
   const dispatch = useDispatch();
@@ -22,6 +24,11 @@ const Work = () => {
 
   useEffect(() => {
     window.addEventListener("scroll", handleResize);
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
   }, [handleResize]);
 
   const imgsArray = [
@@ -80,48 +87,55 @@ const Work = () => {
   return (
     <>
       <App_Navbar />
-      <div className={styles.Work}>
-        <Container>
-          <h2 className={styles.Header}>Our Works</h2>
-          <span className={styles.Breadcrumb}>Home {">"} Services</span>
+      <motion.div
+        initial="initial"
+        animate="animate"
+        exit="exit"
+        variants={pageMotion}
+      >
+        <div className={styles.Work}>
+          <Container>
+            <h2 className={styles.Header}>Our Works</h2>
+            <span className={styles.Breadcrumb}>Home {">"} Services</span>
 
-          <Tabs
-            defaultActiveKey="All"
-            transition={false}
-            id="noanim-tab-example"
-            className={`mb-3 ${styles.TabsWrapper} container`}
-          >
-            <Tab eventKey="All" title="All">
-              <Pagination items={imgsArray} itemsPerPage={10} />
-            </Tab>
+            <Tabs
+              defaultActiveKey="All"
+              transition={false}
+              id="noanim-tab-example"
+              className={`mb-3 ${styles.TabsWrapper} container`}
+            >
+              <Tab eventKey="All" title="All">
+                <Pagination items={imgsArray} itemsPerPage={10} />
+              </Tab>
 
-            <Tab eventKey="Branding" title="Branding">
-              <Pagination items={imgsArray} itemsPerPage={10} />
-            </Tab>
+              <Tab eventKey="Branding" title="Branding">
+                <Pagination items={imgsArray} itemsPerPage={10} />
+              </Tab>
 
-            <Tab eventKey="Printing" title="Printing">
-              <Pagination items={imgsArray} itemsPerPage={10} />
-            </Tab>
+              <Tab eventKey="Printing" title="Printing">
+                <Pagination items={imgsArray} itemsPerPage={10} />
+              </Tab>
 
-            <Tab eventKey="Digital Marketing" title="Marketing">
-              <Pagination items={imgsArray} itemsPerPage={10} />
-            </Tab>
+              <Tab eventKey="Digital Marketing" title="Marketing">
+                <Pagination items={imgsArray} itemsPerPage={10} />
+              </Tab>
 
-            <Tab eventKey="Photosessions" title="Photosessions">
-              <Pagination items={imgsArray} itemsPerPage={10} />
-            </Tab>
+              <Tab eventKey="Photosessions" title="Photosessions">
+                <Pagination items={imgsArray} itemsPerPage={10} />
+              </Tab>
 
-            <Tab eventKey="Web&App" title="Web&App">
-              <Pagination items={imgsArray} itemsPerPage={10} />
-            </Tab>
+              <Tab eventKey="Web&App" title="Web&App">
+                <Pagination items={imgsArray} itemsPerPage={10} />
+              </Tab>
 
-            <Tab eventKey="profile" title="Profile">
-              <Pagination items={imgsArray} itemsPerPage={10} />
-            </Tab>
-          </Tabs>
-        </Container>
-      </div>
-      <Footer />
+              <Tab eventKey="profile" title="Profile">
+                <Pagination items={imgsArray} itemsPerPage={10} />
+              </Tab>
+            </Tabs>
+          </Container>
+        </div>
+        <Footer />
+      </motion.div>
     </>
   );
 };
