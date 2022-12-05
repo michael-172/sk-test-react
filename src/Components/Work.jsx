@@ -24,7 +24,7 @@ const Work = () => {
     <div className={styles.WorkSection}>
       <Container className={styles.WorkContainer}>
         <h2 className="Work_Header">Our Work</h2>
-        <Link href="/Work" className={styles.seeMoreLink}>
+        <Link to="/Work" className={styles.seeMoreLink}>
           See More
         </Link>
       </Container>
@@ -264,7 +264,7 @@ const Work = () => {
                 max: 1024,
                 min: 464,
               },
-              items: 2,
+              items: 1,
               partialVisibilityGutter: 0,
             },
           }}

@@ -9,7 +9,6 @@ const Landing = () => {
     window.onresize = () => {
       if (window.innerWidth < 1200) {
         setSmallScreen(window.innerWidth);
-        console.log(isSmallScreen);
       } else {
         setSmallScreen(window.innerWidth);
       }

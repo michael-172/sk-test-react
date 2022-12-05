@@ -8,6 +8,7 @@
 .Heading {
   text-align: center;
   color: #666666;
+  font-weight: 400;
 }
 
 .Breadcrumb {
@@ -18,6 +19,8 @@
 .ContactForm {
   width: 600px !important;
   margin: auto;
+  margin-bottom: 50px;
+  margin-top: 15px;
 }
 
 .ContactForm input {

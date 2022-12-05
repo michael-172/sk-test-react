@@ -96,7 +96,7 @@ a {
 .container-with-dots {
   height: 636px;
   align-items: flex-start !important;
-  margin: 40px 0px;
+  /* margin: 40px 0px; */
 }
 .container-with-dots ul {
   height: 100%;
@@ -253,6 +253,8 @@ a {
   background-color: transparent !important;
   font-weight: bold;
   font-size: 30px;
+  z-index: 10;
+  width: fit-content;
 }
 
 .react-multiple-carousel__arrow::before {
@@ -275,6 +277,12 @@ a {
   max-height: 650px;
 }
 
+@media (max-width: 768px) {
+  .react-multi-carousel-list {
+    max-height: 370px;
+  }
+}
+
 .navbar-nav .nav-link {
   padding-right: 0;
   padding-left: 0;
@@ -286,4 +294,40 @@ a {
 }
 .footer-link:hover {
   color: #666666;
+}
+
+@media (max-width: 768px) {
+  .offcanvas-body .Services,
+  .offcanvas-body .Clients {
+    display: none !important;
+  }
+}
+.ServicesCarouselMoreThan5 {
+  height: fit-content;
+  max-height: 700px;
+}
+.ServicesCarouselMoreThan5 > ul {
+  height: 100%;
+}
+.ServicesCarouselMoreThan5 > ul li {
+  height: 100%;
+}
+.ServicesCarouselMoreThan5 > ul li a {
+  height: 100%;
+}
+
+.ServicesCarouselMoreThan5 > ul li a img {
+  height: 100%;
+}
+
+.ServicesCarouselMoreThan5 .react-multiple-carousel__arrow::before {
+  color: #2585b8 !important;
+}
+.ServicesCarouselMoreThan5 .react-multiple-carousel__arrow-left {
+  left: 0 !important;
+  width: fit-content;
+}
+
+.ServicesCarouselMoreThan5__dotList {
+  height: fit-content !important;
 }

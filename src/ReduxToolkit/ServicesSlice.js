@@ -4,7 +4,9 @@ import { createSlice } from "@reduxjs/toolkit";
 export const getServices = createAsyncThunk(
   "Skapluie/getServices",
   async (_, thunkAPI) => {
-    const response = await fetch("http://localhost:3001/services");
+    const response = await fetch(
+      "http://freejob-001-site1.atempurl.com/api/services"
+    );
     const res = await response.json();
     return res;
   }
@@ -14,7 +16,9 @@ export const getService = createAsyncThunk(
   "Skapluie/getService",
   async (id, thunkAPI) => {
     try {
-      const response = await fetch(`http://localhost:3001/services/${id}`);
+      const response = await fetch(
+        `http://freejob-001-site1.atempurl.com/api/services/${id}`
+      );
       const res = await response.json();
       return res;
     } catch (error) {

@@ -1,12 +1,33 @@
 import React from "react";
+import { useEffect } from "react";
+import { useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import styles from "../styles/Footer.module.scss";
 
 const Footer = () => {
+  const [largeScreen, setLargeScreen] = useState(true);
+
+  const handleResize = () => {
+    if (window.innerWidth > 992) {
+      setLargeScreen(true);
+    } else {
+      setLargeScreen(false);
+    }
+  };
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+
+    window.innerWidth > 992 ? setLargeScreen(true) : setLargeScreen(false);
+  }, [handleResize]);
+
   return (
     <footer className={styles.Footer}>
-      <Container className={styles.Footer_container}>
+      <div
+        className={`${largeScreen ? "container" : "container-fluid"} ${
+          styles.Footer_container
+        }`}
+      >
         <Row className={styles.Footer_Row}>
           <Col className={` ${styles.column} first`} md={4}>
             <img
@@ -53,7 +74,7 @@ const Footer = () => {
           <Col className={`${styles.column} ${styles.thirdColumn}`} md={4}>
             <span>Call Us Today</span>
             <h1 className={styles.PhoneNumber}>+ 22 3545 4353</h1>
-            <Row style={{ width: "fit-content" }}>
+            <Row style={{ width: "fit-content" }} className={styles.SocialMediaParent}>
               <Col className="justify-content-center d-flex">
                 <img
                   src={"/footer/Facebook.png"}
@@ -89,7 +110,7 @@ const Footer = () => {
             </Row>
           </Col>
         </Row>
-      </Container>
+      </div>
     </footer>
   );
 };

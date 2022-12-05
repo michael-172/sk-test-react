@@ -218,10 +218,10 @@ const Clients = () => {
           dotListClass=""
           draggable
           focusOnSelect={false}
+          infinite={false}
           itemClass=""
-          keyBoardControl={true}
+          keyBoardControl
           minimumTouchDrag={80}
-          partialVisible
           pauseOnHover
           renderArrowsWhenDisabled={false}
           renderButtonGroupOutside={false}
@@ -233,7 +233,7 @@ const Clients = () => {
                 min: 1024,
               },
               items: 3,
-              partialVisibilityGutter: 40,
+              partialVisibilityGutter: 0,
             },
             mobile: {
               breakpoint: {
@@ -241,20 +241,20 @@ const Clients = () => {
                 min: 0,
               },
               items: 1,
-              partialVisibilityGutter: 100,
+              partialVisibilityGutter: 0,
             },
             tablet: {
               breakpoint: {
                 max: 1024,
                 min: 464,
               },
-              items: 2,
-              partialVisibilityGutter: 30,
+              items: 3,
+              partialVisibilityGutter: 0,
             },
           }}
-          rewind={false}
+          rewind={true}
           rewindWithAnimation={false}
-          rtl={true}
+          rtl={false}
           shouldResetAutoplay
           showDots={true}
           sliderClass=""
@@ -263,36 +263,31 @@ const Clients = () => {
         >
           <img
             src={"/Our Services/Frame 7191.png"}
-            width={259}
-            height={270}
+            style={{ maxWidth: "100%" }}
             alt="service1"
           />
 
           <img
             src={"/Our Services/Frame 7191.png"}
-            width={259}
-            height={270}
+            style={{ maxWidth: "100%" }}
             alt="service1"
           />
 
           <img
             src={"/Our Services/Frame 7191.png"}
-            width={259}
-            height={270}
+            style={{ maxWidth: "100%" }}
             alt="service1"
           />
 
           <img
             src={"/Our Services/Frame 7191.png"}
-            width={259}
-            height={270}
+            style={{ maxWidth: "100%" }}
             alt="service1"
           />
 
           <img
             src={"/Our Services/Frame 7191.png"}
-            width={259}
-            height={270}
+            style={{ maxWidth: "100%" }}
             alt="service1"
           />
         </Carousel>

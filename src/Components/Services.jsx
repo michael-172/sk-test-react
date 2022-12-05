@@ -29,15 +29,15 @@ const Services = () => {
   }, [handleResize]);
 
   return (
-    <div className={styles.Services} id="Services">
+    <div className={styles.Services}>
       <h2 className={styles.About__Heading}>Our Services</h2>
       {largeScreen ? (
         <div className={`${largeScreen ? "container" : "container-fluid"}`}>
           <Row>
-            {servicesFromApi &&
-              servicesFromApi.map((service, index) => (
+            {servicesFromApi?.length <= 5 ? (
+              servicesFromApi?.map((service, index) => (
                 <Link
-                  to={`/Services/${service.id}`}
+                  to={`/Services/${service.servieId}`}
                   className={styles.imgHolder}
                   key={index}
                 >
@@ -48,20 +48,94 @@ const Services = () => {
                   >
                     <div className={styles.imgHolder__WithHover}>
                       <img
-                        src={service.image}
+                        src={service.mainImage}
                         width={247}
                         height={496}
-                        alt={service.service_name}
+                        alt={service.name}
                         className={styles.Serviceimg}
                       />
-                      <div>{service.service_name}</div>
+                      <div>{service.name}</div>
                     </div>
-                    <span className={styles.About__Span}>
-                      {service.service_name}
-                    </span>
+                    <span className={styles.About__Span}>{service.name}</span>
                   </Col>
                 </Link>
-              ))}
+              ))
+            ) : (
+              <Carousel
+                additionalTransfrom={0}
+                arrows={false}
+                autoPlaySpeed={3000}
+                centerMode={false}
+                className=""
+                containerClass="ServicesCarouselMoreThan5"
+                dotListClass="ServicesCarouselMoreThan5__dotList"
+                draggable
+                focusOnSelect={false}
+                infinite={false}
+                itemClass=""
+                keyBoardControl
+                minimumTouchDrag={80}
+                pauseOnHover
+                renderArrowsWhenDisabled={false}
+                renderButtonGroupOutside={false}
+                renderDotsOutside={false}
+                responsive={{
+                  desktop: {
+                    breakpoint: {
+                      max: 3000,
+                      min: 1024,
+                    },
+                    items: 4,
+                    partialVisibilityGutter: 0,
+                  },
+                  mobile: {
+                    breakpoint: {
+                      max: 464,
+                      min: 0,
+                    },
+                    items: 1,
+                    partialVisibilityGutter: 30,
+                  },
+                  tablet: {
+                    breakpoint: {
+                      max: 1024,
+                      min: 464,
+                    },
+                    items: 3,
+                    partialVisibilityGutter: 30,
+                  },
+                }}
+                rewind={true}
+                rewindWithAnimation={false}
+                rtl={false}
+                shouldResetAutoplay
+                showDots={true}
+                sliderClass=""
+                slidesToSlide={1}
+                swipeable
+              >
+                {servicesFromApi?.map((ser, index) => (
+                  <Link
+                    to={`/Services/${ser.servieId}`}
+                    className={styles.imgHolder}
+                    key={index}
+                  >
+                    <img
+                      src={ser.mainImage}
+                      width={259}
+                      height={270}
+                      alt="service1"
+                      key={index}
+                      style={{
+                        objectFit: "cover",
+                        maxWidth: "100%",
+                        objectPosition: "center",
+                      }}
+                    />
+                  </Link>
+                ))}
+              </Carousel>
+            )}
           </Row>
         </div>
       ) : (
@@ -73,7 +147,7 @@ const Services = () => {
               autoPlaySpeed={3000}
               centerMode={false}
               className=""
-              containerClass="container"
+              containerClass="container-fluid"
               dotListClass=""
               draggable
               focusOnSelect={false}
@@ -107,7 +181,7 @@ const Services = () => {
                     max: 1024,
                     min: 464,
                   },
-                  items: 2,
+                  items: 3,
                   partialVisibilityGutter: 30,
                 },
               }}
@@ -120,19 +194,25 @@ const Services = () => {
               slidesToSlide={1}
               swipeable
             >
-              {servicesFromApi.map((ser, index) => (
-                <img
-                  src={ser.image}
-                  width={259}
-                  height={270}
-                  alt="service1"
+              {servicesFromApi?.map((ser, index) => (
+                <Link
+                  to={`/Services/${ser.id}`}
+                  className={styles.imgHolder}
                   key={index}
-                  style={{
-                    objectFit: "cover",
-                    width: "80%",
-                    objectPosition: "center",
-                  }}
-                />
+                >
+                  <img
+                    src={ser.mainImage}
+                    width={259}
+                    height={270}
+                    alt="service1"
+                    key={index}
+                    style={{
+                      objectFit: "cover",
+                      maxWidth: "100%",
+                      objectPosition: "center",
+                    }}
+                  />
+                </Link>
               ))}
             </Carousel>
           )}

@@ -5,6 +5,8 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import styles from "../styles/Navbar.module.scss";
+import { HashLink } from "react-router-hash-link";
+import { NavHashLink } from "react-router-hash-link";
 
 const App_Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -31,16 +33,17 @@ const App_Navbar = () => {
   }, [window.scrollY]);
   // Get the navbar
 
-  const links = [
-    { name: "Home", href: "/" },
-    { name: "Services", href: "/#Services" },
-    { name: "About", href: "/About" },
-    { name: "Work", href: "/Work" },
-    { name: "Clients", href: "/Clients" },
-    { name: "Blogs", href: "/Blogs" },
-    { name: "Contact", href: "/Contact" },
-  ];
+  // const links = [
+  //   { name: "Home", href: "/" },
+  //   { name: "Services", href: "/#Services" },
+  //   { name: "About", href: "/About" },
+  //   { name: "Work", href: "/Work" },
+  //   { name: "Clients", href: "/#Clients" },
+  //   { name: "Blogs", href: "/Blogs" },
+  //   { name: "Contact", href: "/Contact" },
+  // ];
   const location = `${useLocation().pathname}${useLocation().hash}`;
+  console.log(location);
   return (
     <>
       {["lg"].map((expand) => (
@@ -95,20 +98,32 @@ const App_Navbar = () => {
                   className="navbarLinks justify-content-end flex-grow-1 pe-3 gap-4"
                   style={{ position: "relative" }}
                 >
-                  {links.map((link, index) => (
-                    <Link
-                      to={`${link.href}`}
-                      key={index}
-                      onClick={() => {
-                        setActiveLink(link.name);
-                      }}
-                      className={`nav-link ${
-                        location === link.href ? "active" : ""
-                      }`}
-                    >
-                      {link.name}
-                    </Link>
-                  ))}
+                  <Link to={`/`} onClick={() => {setActiveLink("Home")}}>
+                    <Nav.Item className={`nav-link ${location ===  '/' ? "active" : ""}`}>Home</Nav.Item>
+                  </Link>
+
+                  <HashLink to="/#Services" onClick={() => {setActiveLink("Services")}}>
+                    <Nav.Item className={`nav-link ${location ===  '/#Services' ? "active" : ""}`}>Services</Nav.Item>
+                  </HashLink>
+
+                  <Link to={`/About`} onClick={() => {setActiveLink("About")}}>
+                    <Nav.Item className={`nav-link ${location ===  '/About' ? "active" : ""}`}>About</Nav.Item>
+                  </Link>
+                  <Link to={`/Work`} onClick={() => {setActiveLink("Work")}}>
+                    <Nav.Item className={`nav-link ${location ===  '/Work' ? "active" : ""}`}>Work</Nav.Item>
+                  </Link>
+
+                  <HashLink to="/#Clients" onClick={() => {setActiveLink("Clients")}}>
+                    <Nav.Item className={`nav-link ${location ===  '/#Clients' ? "active" : ""}`}>Clients</Nav.Item>
+                  </HashLink>
+
+                  <Link to={`/Blogs`} onClick={() => {setActiveLink("Blogs")}}>
+                    <Nav.Item className={`nav-link ${location ===  '/Blogs' ? "active" : ""}`}>Blogs</Nav.Item>
+                  </Link>
+
+                  <Link to={`/Contact`} onClick={() => {setActiveLink("Contact")}}>
+                    <Nav.Item className={`nav-link ${location ===  '/Contact' ? "active" : ""}`}>Contact</Nav.Item>
+                  </Link>
                 </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>
@@ -120,3 +135,5 @@ const App_Navbar = () => {
 };
 
 export default App_Navbar;
+
+
