@@ -31,6 +31,12 @@ const App_Navbar = () => {
 
     window.addEventListener("scroll", handleScroll);
   }, [window.scrollY]);
+
+  const scrollToServices = () => {
+    // window.scrollBy(0, 900)
+    // document.querySelector(".offcanvas-backdrop").remove()
+    // document.querySelector(".offcanvas").remove()
+  };
   // Get the navbar
 
   // const links = [
@@ -43,7 +49,6 @@ const App_Navbar = () => {
   //   { name: "Contact", href: "/Contact" },
   // ];
   const location = `${useLocation().pathname}${useLocation().hash}`;
-  console.log(location);
   return (
     <>
       {["lg"].map((expand) => (
@@ -81,6 +86,7 @@ const App_Navbar = () => {
               id={`offcanvasNavbar-expand-${expand}`}
               aria-labelledby={`offcanvasNavbarLabel-expand-${expand}`}
               placement="end"
+              tabIndex=""
             >
               <Offcanvas.Header closeButton>
                 <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${expand}`}>
@@ -98,31 +104,106 @@ const App_Navbar = () => {
                   className="navbarLinks justify-content-end flex-grow-1 pe-3 gap-4"
                   style={{ position: "relative" }}
                 >
-                  <Link to={`/`} onClick={() => {setActiveLink("Home")}}>
-                    <Nav.Item className={`nav-link ${location ===  '/' ? "active" : ""}`}>Home</Nav.Item>
+                  <Link
+                    to={`/`}
+                    onClick={() => {
+                      setActiveLink("Home");
+                    }}
+                  >
+                    <Nav.Item
+                      className={`nav-link ${location === "/" ? "active" : ""}`}
+                    >
+                      Home
+                    </Nav.Item>
                   </Link>
 
-                  <HashLink to="/#Services" onClick={() => {setActiveLink("Services")}}>
-                    <Nav.Item className={`nav-link ${location ===  '/#Services' ? "active" : ""}`}>Services</Nav.Item>
+                  <HashLink
+                    to="/#Services"
+                    onClick={() => {
+                      setActiveLink("Services");
+                    }}
+                  >
+                    <Nav.Item
+                      className={`nav-link ${
+                        location === "/#Services" ? "active" : ""
+                      }`}
+                    >
+                      Services
+                    </Nav.Item>
                   </HashLink>
 
-                  <Link to={`/About`} onClick={() => {setActiveLink("About")}}>
-                    <Nav.Item className={`nav-link ${location ===  '/About' ? "active" : ""}`}>About</Nav.Item>
+                  <Link
+                    to={`/About`}
+                    onClick={() => {
+                      setActiveLink("About");
+                    }}
+                  >
+                    <Nav.Item
+                      className={`nav-link ${
+                        location === "/About" ? "active" : ""
+                      }`}
+                    >
+                      About
+                    </Nav.Item>
                   </Link>
-                  <Link to={`/Work`} onClick={() => {setActiveLink("Work")}}>
-                    <Nav.Item className={`nav-link ${location ===  '/Work' ? "active" : ""}`}>Work</Nav.Item>
+                  <Link
+                    to={`/Work`}
+                    onClick={() => {
+                      setActiveLink("Work");
+                    }}
+                  >
+                    <Nav.Item
+                      className={`nav-link ${
+                        location === "/Work" ? "active" : ""
+                      }`}
+                    >
+                      Work
+                    </Nav.Item>
                   </Link>
 
-                  <HashLink to="/#Clients" onClick={() => {setActiveLink("Clients")}}>
-                    <Nav.Item className={`nav-link ${location ===  '/#Clients' ? "active" : ""}`}>Clients</Nav.Item>
+                  <HashLink
+                    to="/#Clients"
+                    onClick={() => {
+                      setActiveLink("Clients");
+                    }}
+                  >
+                    <Nav.Item
+                      className={`nav-link ${
+                        location === "/#Clients" ? "active" : ""
+                      }`}
+                    >
+                      Clients
+                    </Nav.Item>
                   </HashLink>
 
-                  <Link to={`/Blogs`} onClick={() => {setActiveLink("Blogs")}}>
-                    <Nav.Item className={`nav-link ${location ===  '/Blogs' ? "active" : ""}`}>Blogs</Nav.Item>
+                  <Link
+                    to={`/Blogs`}
+                    onClick={() => {
+                      setActiveLink("Blogs");
+                    }}
+                  >
+                    <Nav.Item
+                      className={`nav-link ${
+                        location === "/Blogs" ? "active" : ""
+                      }`}
+                    >
+                      Blogs
+                    </Nav.Item>
                   </Link>
 
-                  <Link to={`/Contact`} onClick={() => {setActiveLink("Contact")}}>
-                    <Nav.Item className={`nav-link ${location ===  '/Contact' ? "active" : ""}`}>Contact</Nav.Item>
+                  <Link
+                    to={`/Contact`}
+                    onClick={() => {
+                      setActiveLink("Contact");
+                    }}
+                  >
+                    <Nav.Item
+                      className={`nav-link ${
+                        location === "/Contact" ? "active" : ""
+                      }`}
+                    >
+                      Contact
+                    </Nav.Item>
                   </Link>
                 </Nav>
               </Offcanvas.Body>
@@ -135,5 +216,3 @@ const App_Navbar = () => {
 };
 
 export default App_Navbar;
-
-

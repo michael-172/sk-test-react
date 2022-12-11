@@ -108,7 +108,7 @@ const Services = () => {
                   alt={"full"}
                   style={{
                     maxWidth: "100%",
-                    maxHeight: "100%",
+                    maxHeight: "400px",
                     width: "auto",
                     height: "auto",
                   }}

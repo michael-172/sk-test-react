@@ -3,9 +3,9 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import { Provider } from "react-redux";
-import store from "./ReduxToolkit/ServicesSlice";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../src/styles/globals.css";
+import { store } from "./ReduxToolkit/Store/Index";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

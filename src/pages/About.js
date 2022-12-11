@@ -6,14 +6,18 @@ import DrawerAppBar from "../Components/Nav";
 import styles from "../styles/About.module.scss";
 import { motion } from "framer-motion";
 import { pageMotion } from "../AnimatedRoutes";
+import { useDispatch } from "react-redux";
+import { getAbout } from "../ReduxToolkit/ServicesSlice";
 
 const About = () => {
+  const dispatch = useDispatch();
   useEffect(() => {
     window.scrollTo({
       top: 0,
       left: 0,
       behavior: "smooth",
     });
+    // dispatch(getAbout("Our Vision"));
   });
 
   return (

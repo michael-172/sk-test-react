@@ -7,6 +7,9 @@ import BlogCard from "./BlogCard";
 
 const Pagination = ({ items, itemsPerPage }) => {
   // Example items, to simulate fetching from another resources.
+
+  console.log(items);
+
   const scrollFunction = () => {
     setTimeout(() => {
       window.scroll({
@@ -22,10 +25,13 @@ const Pagination = ({ items, itemsPerPage }) => {
       <div className={styles.BlogsWrapper}>
         {currentItems &&
           currentItems.map((item, idx) => (
-            <BlogCard id={`item-${idx}`} key={idx}>
-              {" "}
-              Test
-            </BlogCard>
+            <>
+              {console.log(item.serviceId)}{" "}
+              <BlogCard id={`item-${idx}`} item={item} key={idx}>
+                {" "}
+                Test
+              </BlogCard>
+            </>
           ))}
         {console.log(currentItems)}
       </div>

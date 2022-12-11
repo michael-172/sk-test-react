@@ -331,3 +331,9 @@ a {
 .ServicesCarouselMoreThan5__dotList {
   height: fit-content !important;
 }
+
+@media (max-width: 400px) {
+  .offcanvas {
+    width: 75% !important;
+  }
+}

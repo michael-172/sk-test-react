@@ -3,9 +3,20 @@ import { Col, Container, Row } from "react-bootstrap";
 import styles from "../styles/Clients.module.css";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-const Clients = () => {
-  const [largeScreen, setLargeScreen] = useState(true);
+import { getClients } from "../ReduxToolkit/Store/clientsSlice";
+import { useDispatch, useSelector } from "react-redux";
 
+const Clients = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getClients());
+  }, [dispatch]);
+
+  const { clients } = useSelector((state) => state.clients);
+  console.log(clients);
+
+  const [largeScreen, setLargeScreen] = useState(true);
   const handleResize = () => {
     if (window.innerWidth > 1200) {
       setLargeScreen(true);
@@ -15,9 +26,9 @@ const Clients = () => {
   };
   useEffect(() => {
     window.addEventListener("resize", handleResize);
-
     window.innerWidth > 1200 ? setLargeScreen(true) : setLargeScreen(false);
   }, [handleResize]);
+
   return (
     <div className={styles.Clients} id="Clients">
       <h2 className={styles.Clients__Heading}>Our Clients</h2>
@@ -30,181 +41,19 @@ const Clients = () => {
             height={800}
             alt={"background"}
           />
-          <div className={styles.ClientsWrapper}>
-            <img
-              className={styles.Client}
-              src="/Clients/Client-1.png"
-              width={61}
-              height={61}
-              alt={"background"}
-            />
-            <img
-              className={styles.Client}
-              src="/Clients/Client-2.png"
-              width={61}
-              height={61}
-              alt={"background"}
-            />
-            <img
-              className={styles.Client}
-              src="/Clients/Client-3.png"
-              width={61}
-              height={61}
-              alt={"background"}
-            />
-            <img
-              className={styles.Client}
-              src="/Clients/Client-1.png"
-              width={61}
-              height={61}
-              alt={"background"}
-            />
-            <img
-              className={styles.Client}
-              src="/Clients/Client-2.png"
-              width={61}
-              height={61}
-              alt={"background"}
-            />
-            <img
-              className={styles.Client}
-              src="/Clients/Client-3.png"
-              width={61}
-              height={61}
-              alt={"background"}
-            />
-            <img
-              className={styles.Client}
-              src="/Clients/Client-1.png"
-              width={61}
-              height={61}
-              alt={"background"}
-            />
-            <img
-              className={styles.Client}
-              src="/Clients/Client-2.png"
-              width={61}
-              height={61}
-              alt={"background"}
-            />
-            <img
-              className={styles.Client}
-              src="/Clients/Client-3.png"
-              width={61}
-              height={61}
-              alt={"background"}
-            />
-            <img
-              className={styles.Client}
-              src="/Clients/Client-1.png"
-              width={61}
-              height={61}
-              alt={"background"}
-            />
-          </div>
 
-          <div className={styles.ClientsWrapper}>
-            <img
-              className={styles.Client}
-              src="/Clients/Client-2.png"
-              width={61}
-              height={61}
-              alt={"background"}
-            />
-            <img
-              className={styles.Client}
-              src="/Clients/Client-3.png"
-              width={61}
-              height={61}
-              alt={"background"}
-            />
-            <img
-              className={styles.Client}
-              src="/Clients/Client-1.png"
-              width={61}
-              height={61}
-              alt={"background"}
-            />
-            <img
-              className={styles.Client}
-              src="/Clients/Client-2.png"
-              width={61}
-              height={61}
-              alt={"background"}
-            />
-            <img
-              className={styles.Client}
-              src="/Clients/Client-3.png"
-              width={61}
-              height={61}
-              alt={"background"}
-            />
-            <img
-              className={styles.Client}
-              src="/Clients/Client-2.png"
-              width={61}
-              height={61}
-              alt={"background"}
-            />
-            <img
-              className={styles.Client}
-              src="/Clients/Client-1.png"
-              width={61}
-              height={61}
-              alt={"background"}
-            />
-            <img
-              className={styles.Client}
-              src="/Clients/Client-3.png"
-              width={61}
-              height={61}
-              alt={"background"}
-            />
-          </div>
-
-          <div className={styles.ClientsWrapper}>
-            <img
-              className={styles.Client}
-              src="/Clients/Client-1.png"
-              width={61}
-              height={61}
-              alt={"background"}
-            />
-            <img
-              className={styles.Client}
-              src="/Clients/Client-2.png"
-              width={61}
-              height={61}
-              alt={"background"}
-            />
-            <img
-              className={styles.Client}
-              src="/Clients/Client-3.png"
-              width={61}
-              height={61}
-              alt={"background"}
-            />
-            <img
-              className={styles.Client}
-              src="/Clients/Client-1.png"
-              width={61}
-              height={61}
-              alt={"background"}
-            />
-            <img
-              className={styles.Client}
-              src="/Clients/Client-3.png"
-              width={61}
-              height={61}
-              alt={"background"}
-            />
-            <img
-              className={styles.Client}
-              src="/Clients/Client-2.png"
-              width={61}
-              height={61}
-              alt={"background"}
-            />
+          <div className={styles.ClientsWrapper} style={{ flexWrap: "wrap" }}>
+            {clients?.length > 0 &&
+              clients?.map((el, idx) => (
+                <img
+                  key={idx}
+                  className={styles.Client}
+                  src={el.description}
+                  width={61}
+                  height={61}
+                  alt={"background"}
+                />
+              ))}
           </div>
         </Container>
       ) : (

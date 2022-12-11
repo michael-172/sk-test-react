@@ -6,7 +6,7 @@ import { Container } from "react-bootstrap";
 import Pagination from "../Components/Pagination";
 import DrawerAppBar from "../Components/Nav";
 import { useDispatch } from "react-redux";
-import { scrolled, notScrolled } from "../ReduxToolkit/ServicesSlice";
+import { scrolled, notScrolled } from "../ReduxToolkit/Store/scrollingSlice";
 import App_Navbar from "../Components/App_Navbar";
 import Footer from "../Components/Footer";
 import { pageMotion } from "../AnimatedRoutes";

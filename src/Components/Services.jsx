@@ -29,7 +29,7 @@ const Services = () => {
   }, [handleResize]);
 
   return (
-    <div className={styles.Services}>
+    <div className={styles.Services} id="Services">
       <h2 className={styles.About__Heading}>Our Services</h2>
       {largeScreen ? (
         <div className={`${largeScreen ? "container" : "container-fluid"}`}>
